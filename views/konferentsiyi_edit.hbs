@@ -1,0 +1,32 @@
+<div class="container">
+    <h2 class="text-primary text-center">Редагувати конференцію</h2>
+    <form method="POST" action="/konferentsiyi_edit">
+        <input type="hidden" name="id_conferentsiyi" value="{{conference.id_conferentsiyi}}">
+        <div class="form-group">
+            <label>Назва конференції</label>
+            <input type="text" name="nazva_conferentsiyi" class="form-control" 
+                   value="{{conference.nazva_conferentsiyi}}">
+        </div>
+        <div class="form-group">
+            <label>Дата початку</label>
+            <input type="date" name="data_pochatku" class="form-control" 
+                   value="{{conference.data_pochatku}}">
+        </div>
+        <div class="form-group">
+            <label>Дата завершення</label>
+            <input type="date" name="data_zakinchennya" class="form-control" 
+                   value="{{conference.data_zakinchennya}}">
+        </div>
+        <div class="form-group">
+            <label>Відповідальний</label>
+            <select name="id_spivrobitnyky" class="form-control">
+            {{#each spivrobitnyky}}
+                <option value="{{this.id_spivrobitnyky}}" {{#if this.selected}}selected{{/if}}>
+                    {{this.prizvyshche}} {{this.imya}} {{this.pobatkovi}}
+                </option>
+            {{/each}}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success mt-2">Зберегти</button>
+    </form>
+</div>

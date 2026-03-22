@@ -1,0 +1,58 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><img src="/favicon.ico" style="width:28px; filter: invert(32%) sepia(99%) saturate(2473%) hue-rotate(195deg) brightness(96%) contrast(101%);"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" 
+          aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <ul class="navbar-nav mr-auto">
+
+      <!-- Конференції -->
+      <li class="nav-item">
+        <a class="nav-link" href="/konferentsiyi">Конференції<span class="sr-only">(current)</span></a>
+      </li>
+
+      <!-- Довідники -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">Довідники</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+          <a class="dropdown-item" href="/kafedry">Кафедри</a>
+          <a class="dropdown-item" href="/spivrobitnyky">Співробітники</a>
+        </div>
+      </li>
+
+      <!-- Рейтинги -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">Рейтинги</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+          <a class="dropdown-item" href="/konf_top">Рейтинг конференцій</a>
+          <a class="dropdown-item" href="/kafedry_top">Рейтинг кафедр</a>
+          <a class="dropdown-item" href="/misce_top">Рейтинг місць проживання</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Ліва частина меню: привітання та Вхід/Вихід -->
+    <ul class="navbar-nav ml-auto">
+      {{#if username}}
+        <li class="nav-item">
+          {{#if isAdmin}}
+            <span class="navbar-text text-success mr-3">Вітаємо, адміністраторе {{username}}</span>
+          {{else}}
+            <span class="navbar-text text-primary mr-3">Вітаємо, {{username}}</span>
+          {{/if}}
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Вихід</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/">Вхід</a>
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>

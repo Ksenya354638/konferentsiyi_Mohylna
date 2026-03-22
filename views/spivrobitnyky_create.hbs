@@ -1,0 +1,31 @@
+<div class="container">
+    <h2 class="text-center text-primary">Додати співробітника</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label>Прізвище</label>
+                <input type="text" name="prizvyshche" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Ім’я</label>
+                <input type="text" name="imya" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>По батькові</label>
+                <input type="text" name="pobatkovi" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Кафедра</label>
+                <select name="id_kafedry" class="form-control">
+                    {{#each kafedry}}
+                        <option value="{{this.id_kafedry}}">
+                            {{this.nazva_kafedry}}
+                        </option>
+                    {{/each}}
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">
+                Додати
+            </button>
+    </form>
+</div>

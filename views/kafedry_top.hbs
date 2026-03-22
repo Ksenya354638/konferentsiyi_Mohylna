@@ -1,0 +1,30 @@
+<div class="container-fluid" style="min-height: 50vh">
+    <div class="row mb-3">
+        <div class="col-12 text-center">
+            <h2 class="text-primary">Топ 10 кафедр за кількістю конференцій</h2>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>#</th>
+                    <th>Назва кафедри</th>
+                    <th>Розташування</th>
+                    <th>Кількість конференцій</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each kafedry_top}}
+                <tr class="text-center">
+                    <td>{{@index}}</td>
+                    <td>{{this.nazva_kafedry}}</td>
+                    <td>{{this.roztashuvannya}}</td>
+                    <td>{{this.kilkist}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
