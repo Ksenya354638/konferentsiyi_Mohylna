@@ -19,10 +19,12 @@ app.use(cookieParser());
 
 const pool = mysql.createPool({
   connectionLimit: 5,
-  host: "localhost",
-  user: "root",
-  database: "konferentsiyi_mohylna",
-  password: ""
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  database: process.env.DB_NAME || "konferentsiyi_mohylna",
+  password: process.env.DB_PASS || "",
+  port: 25851,
+  ssl: {}
 });
 global.pool = pool;
 
