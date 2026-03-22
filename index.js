@@ -27,6 +27,14 @@ const pool = mysql.createPool({
   ssl: {}
 });
 global.pool = pool;
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.log("❌ DB connection failed:", err.message);
+  } else {
+    console.log("✅ DB connected successfully!");
+    connection.release();
+  }
+});
 
 const sessionStore = new MySQLStore({}, pool.promise());
 
@@ -64,13 +72,13 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("Сервер запущено на порту " + PORT));
 
 const kafedry = require('./kafedry');
-kafedry(app);
+kafedry(app, pool);
 
 const spivrobitnyky = require('./spivrobitnyky');
-spivrobitnyky(app);
+spivrobitnyky(app, pool);
 
 const konferentsiyi = require('./konferentsiyi');
-konferentsiyi(app);
+konferentsiyi(app, pool);
 
 app.get("/konf_top", requireAdmin, (req, res) => {
   pool.query(`

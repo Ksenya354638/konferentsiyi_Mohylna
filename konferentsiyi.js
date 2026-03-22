@@ -1,4 +1,4 @@
-module.exports = function(app){
+module.exports = function(app, pool){
     const header = global.zagolovok;
     const pool = global.pool;
     const mysql = require("mysql2");
