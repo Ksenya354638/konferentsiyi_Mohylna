@@ -1,5 +1,4 @@
 const header = global.zagolovok;
-const pool = global.pool;
 
 const mysql = require("mysql2");
 const express = require("express");

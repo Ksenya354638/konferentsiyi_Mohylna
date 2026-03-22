@@ -11,7 +11,6 @@ const { requireLogin, requireAdmin } = require("./middleware");
 
 module.exports = function(app) {
     const header = global.zagolovok;
-    const pool = global.pool;
     app.get("/spivrobitnyky", requireAdmin, function(req, res) {
         pool.query("SELECT nazva_kafedry FROM kafedry",
         function(err, data) {
